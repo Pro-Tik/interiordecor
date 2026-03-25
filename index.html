@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Innovative Decor | Premium Interior Design & Decorative Materials</title>
+  <!-- Professional Fonts: Playfair Display for headings (elegant luxury vibe) + Inter for clean body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf8;
+      color: #2c2a29;
+      overflow-x: hidden;
+    }
+
+    /* headings use sophisticated serif font */
+    h1, h2, h3, h4, .logo h1, .section-title, .feature-card h3, .service-card h3, .testimonial-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    /* ---------- PRELOADER (Word-by-Word Reveal) ---------- */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fefaf5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .preloader-text {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      font-family: 'Playfair Display', serif;
+    }
+    .word {
+      background: linear-gradient(135deg, #b97f44, #9b5e2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: wordReveal 0.5s forwards;
+    }
+    .word1 { animation-delay: 0.1s; }
+    .word2 { animation-delay: 0.5s; }
+    @keyframes wordReveal {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .preloader-dot {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #c38e5a;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: pulseDot 1.2s infinite ease;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ========== FULLY RESPONSIVE NAVBAR (Mobile hamburger) ========== */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background: rgba(254,252,248,0.96);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+      transition: all 0.3s;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      position: relative;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #b97f44, #9b5e2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #6b5a4e;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* menu icon (hamburger) */
+    .menu-icon {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #b97f44;
+      display: none;
+      transition: 0.2s;
+    }
+    .menu-icon:hover {
+      color: #9b5e2c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3e3a37;
+      transition: 0.2s;
+      position: relative;
+      font-family: 'Inter', sans-serif;
+    }
+    .nav-links li a:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #c38e5a;
+      transition: width 0.25s ease;
+    }
+    .nav-links li a:hover:after {
+      width: 100%;
+    }
+    .nav-links li a:hover {
+      color: #b97f44;
+    }
+    .nav-links .btn-primary {
+      background-color: #c38e5a;
+      color: white;
+      padding: 0.65rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .nav-links .btn-primary:hover {
+      background-color: #a46d3e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(163, 109, 58, 0.2);
+    }
+    .nav-links .btn-primary:after {
+      display: none;
+    }
+
+    /* buttons general */
+    .btn-primary {
+      background-color: #c38e5a;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary:hover {
+      background-color: #a46d3e;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(163, 109, 58, 0.25);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #c38e5a;
+      color: #c38e5a;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.25s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-outline:hover {
+      background: #c38e5a;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      padding: 3rem 0 4rem;
+    }
+    .hero-content {
+      flex: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content .badge {
+      background: #f0e7de;
+      color: #b46f35;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #2c2a29;
+    }
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1.5rem 0 1rem;
+      background: #fff6ef;
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      width: fit-content;
+      flex-wrap: wrap;
+    }
+    .stars {
+      color: #f5b042;
+    }
+    .hero-image {
+      flex: 1;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+    .hero-image:hover {
+      transform: scale(1.01);
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* sections animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      text-align: center;
+      color: #7c6e62;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+    }
+
+    /* grids fully responsive */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 28px;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      text-align: center;
+      border: 1px solid #f0e9e2;
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #c38e5a;
+      margin-bottom: 1rem;
+    }
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 40px -18px rgba(0,0,0,0.2);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 28px;
+      text-align: center;
+      border: 1px solid #f0e9e2;
+    }
+    .feature-card i {
+      font-size: 2.2rem;
+      color: #c38e5a;
+      margin-bottom: 1rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+    .product-item {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    .product-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+    }
+    .product-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 1rem 1.2rem 1.5rem;
+      text-align: center;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 28px;
+      border: 1px solid #efe5dc;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .review-card {
+      background: white;
+      padding: 1.6rem;
+      border-radius: 28px;
+      border: 1px solid #efe5dc;
+    }
+
+    .contact-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #fffbf7;
+      border-radius: 48px;
+      padding: 2rem;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.04);
+      border: 1px solid #f0e2d6;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .info-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .info-detail i {
+      width: 32px;
+      color: #c38e5a;
+      font-size: 1.3rem;
+    }
+    .map-container {
+      flex: 1;
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 280px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      border: 0;
+    }
+
+    /* modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      z-index: 1100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      max-width: 450px;
+      width: 90%;
+      border-radius: 40px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .modal-buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      margin: 2rem 0 1rem;
+      flex-wrap: wrap;
+    }
+    .modal-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5efe9;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #2c2a29;
+    }
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      float: right;
+    }
+
+    footer {
+      background: #1e1b19;
+      color: #cfc6bd;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-col a {
+      color: #cfc6bd;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+
+    /* ========== RESPONSIVE BREAKPOINTS (Mobile, Tab, Desktop) ========== */
+    @media (max-width: 992px) {
+      .container {
+        padding: 0 1.8rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(254, 252, 248, 0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.8rem 1rem;
+        border-radius: 0 0 28px 28px;
+        box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+        z-index: 999;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      .navbar {
+        padding: 0.9rem 0;
+      }
+      .hero {
+        flex-direction: column;
+        padding: 2rem 0;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .rating-summary {
+        width: auto;
+      }
+      .contact-wrap {
+        flex-direction: column;
+      }
+      .map-container {
+        min-height: 260px;
+      }
+      section {
+        padding: 3rem 0;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .services-grid, .features-grid, .products-grid, .testimonials-grid, .reviews-grid {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .btn-primary, .btn-outline {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      .service-card, .feature-card {
+        padding: 1.5rem;
+      }
+      .modal-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .modal-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .logo h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* tablet landscape fine-tuning */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero {
+        gap: 2rem;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="preloader-text">
+    <span class="word word1">Innovative</span>
+    <span class="word word2">Decor</span>
+  </div>
+  <div class="preloader-dot"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+</div>
+
+<!-- MODAL Quote -->
+<div id="quoteModal" class="modal">
+  <div class="modal-content">
+    <button class="close-modal" id="closeModalBtn">&times;</button>
+    <i class="fas fa-comment-dots" style="font-size: 2.5rem; color: #c38e5a;"></i>
+    <h3>Get a Quote</h3>
+    <p>Reach out to our design experts</p>
+    <div class="modal-buttons">
+      <a href="mailto:innovativedecorbd@gmail.com?subject=Interior%20Design%20Quote&body=Hi,%20I'd%20like%20to%20get%20a%20quote" class="modal-btn email-btn" target="_blank"><i class="fas fa-envelope"></i> Email Us</a>
+      <a href="https://wa.me/8801975584551?text=Hello%20Innovative%20Decor!%20I'm%20interested%20in%20a%20quote." class="modal-btn whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<header class="sticky-header">
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Innovative Decor</h1>
+        <span>Interior architecture & design studio</span>
+      </div>
+      <div class="menu-icon" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="javascript:void(0)" class="btn-primary open-quote-btn" id="navQuoteBtn">Get a quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero section -->
+  <section id="home">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="badge"><i class="fas fa-crown"></i> Premium Interior Solutions</div>
+          <h1>Transform your space<br>with innovative designs</h1>
+          <p>Specializing in charcoal louvers, HPL laminates, acrylic sheets, MDF boards, and premium decorative materials. We deliver superior quality and creativity in every project.</p>
+          <div class="rating-summary">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <strong>4.3</strong> <span>(31 Google reviews)</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <a href="javascript:void(0)" class="btn-primary open-quote-btn" id="heroQuoteBtn">Request quote</a>
+            <a href="https://www.google.com/search?q=innovative+decor&ie=UTF-8#lrd=0x3755c7130e73de21:0xc213c42bc57bbb8f,1,,,," target="_blank" class="btn-outline">Read Google reviews</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&auto=format" alt="Modern interior design">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services -->
+  <section id="services">
+    <div class="container fade-up">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">At Innovative Decor, we are committed to revolutionizing interior spaces with expertly crafted designs. Specializing in charcoal louvers, charcoal boards, HPL laminates, acrylic sheets, MDF acrylic boards, and Gorjon Ply HPL and acrylic boards, we pledge to deliver superior quality and creativity in every project.</p>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-home"></i><h3>Interior Design and Decoration</h3><p>Creative and functional design solutions for homes, offices, restaurants, and showrooms.</p></div>
+        <div class="service-card"><i class="fas fa-drafting-compass"></i><h3>Architectural and Interior Consultancy</h3><p>Expert guidance on space planning, furniture selection, color schemes, and lighting design.</p></div>
+        <div class="service-card"><i class="fas fa-cube"></i><h3>3D Exterior and Interior Design</h3><p>Detailed 3D models to help clients visualize proposed designs for interiors and exteriors.</p></div>
+        <div class="service-card"><i class="fas fa-paint-roller"></i><h3>Decorative Materials</h3><p>3D boards, HPL, acrylic boards, painting services, wallpaper, and artificial glass to enhance aesthetics.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section style="background: #faf6f0;">
+    <div class="container fade-up">
+      <h2 class="section-title">Why Choose Us?</h2>
+      <p class="section-sub">At INNOVATIVE DECOR, we offer exceptional quality, cutting-edge designs, and personalized solutions. With a focus on durability and sustainability, our expert craftsmanship ensures your spaces are both stylish and functional, tailored to your unique vision.</p>
+      <div class="features-grid">
+        <div class="feature-card"><i class="fas fa-pencil-ruler"></i><h3>Great Design</h3><p>Innovative approach ensures each product is meticulously crafted to reflect modern aesthetics and functionality.</p></div>
+        <div class="feature-card"><i class="fas fa-gem"></i><h3>Durability</h3><p>Top-grade materials like HPL laminates and acrylic sheets built to withstand the test of time.</p></div>
+        <div class="feature-card"><i class="fas fa-leaf"></i><h3>Sustainability</h3><p>Eco-friendly practices and sustainable materials for a greener planet.</p></div>
+        <div class="feature-card"><i class="fas fa-sliders-h"></i><h3>Customization</h3><p>Personalized solutions that fit seamlessly into your vision.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Gallery -->
+  <section id="products">
+    <div class="container fade-up">
+      <h2 class="section-title">Our Premium Products</h2>
+      <p class="section-sub">Transform your spaces with our premium range of charcoal louvers, HPL laminates, acrylic sheets, and MDF boards, blending modern design with unmatched durability.</p>
+      <div class="products-grid">
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&auto=format" alt="Charcoal Board"><div class="product-info"><h4>Charcoal Board</h4></div></div>
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=500&auto=format" alt="HPL Laminates"><div class="product-info"><h4>HPL Laminates</h4></div></div>
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500&auto=format" alt="Interior Design"><div class="product-info"><h4>Interior Design</h4></div></div>
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format" alt="MDF Acrylic Board"><div class="product-info"><h4>MDF Acrylic Board</h4></div></div>
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format" alt="Merino Laminates"><div class="product-info"><h4>Merino Laminates</h4></div></div>
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format" alt="Gorjon Ply HPL Board"><div class="product-info"><h4>Gorjon Ply HPL Board</h4></div></div>
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=500&auto=format" alt="Innovative Kitchen Solution"><div class="product-info"><h4>Innovative Kitchen Solution</h4></div></div>
+        <div class="product-item"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&auto=format" alt="Modern Wall Decor"><div class="product-info"><h4>Modern Wall Decor</h4></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Our Clients Say -->
+  <section style="background: #fefaf5;">
+    <div class="container fade-up">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card"><i class="fas fa-quote-left"></i><p class="testimonial-text">The team created an elegant and functional office space for us. Their attention to detail and expertise in 3D visualization made the process seamless.</p><div class="testimonial-name">Tofayel Ahmed</div><div class="testimonial-title">Managing Director, Ahmed Group & Co.</div></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left"></i><p class="testimonial-text">Innovative Decor designed my restaurant with such creativity and precision. The ambiance they created has received endless compliments.</p><div class="testimonial-name">Nina Akhter</div><div class="testimonial-title">Restaurant Owner, Bistro Bliss</div></div>
+        <div class="testimonial-card"><i class="fas fa-quote-left"></i><p class="testimonial-text">Their architectural consultancy was spot-on, and the execution was flawless. A modern and stylish showroom that perfectly aligns with our brand.</p><div class="testimonial-name">Arefin Rahman</div><div class="testimonial-title">CEO, Urban Trends</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Section -->
+  <section id="reviews">
+    <div class="container fade-up">
+      <h2 class="section-title">Google Reviews</h2>
+      <p class="section-sub">Real feedback from our valued customers — trusted by homeowners and businesses across Dhaka.</p>
+      <div class="reviews-grid" id="reviewsContainer"></div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="https://www.google.com/search?q=innovative+decor&ie=UTF-8#lrd=0x3755c7130e73de21:0xc213c42bc57bbb8f,1,,,," target="_blank" class="btn-outline"><i class="fab fa-google"></i> See all 31 reviews on Google</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
+  <section id="contact">
+    <div class="container fade-up">
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <h3>INNOVATIVE DECOR</h3>
+          <div class="info-detail"><i class="fas fa-map-marker-alt"></i><span>House-79, Shop-02, Chairmanbari Banani, Block#D, Dhaka 1213, Bangladesh</span></div>
+          <div class="info-detail"><i class="fas fa-phone-alt"></i><span>+880 1975-584551</span></div>
+          <div class="info-detail"><i class="fas fa-envelope"></i><span>innovativedecorbd@gmail.com</span></div>
+          <div class="info-detail"><i class="fas fa-clock"></i><span>Sat–Thu: 10:00 AM – 8:00 PM | Fri: 2:00 PM – 8:00 PM</span></div>
+          <div style="margin-top: 1.5rem;"><a href="https://maps.google.com/?q=House-79, Shop-02, Chairmanbari banani, Block#D, Dhaka 1213" target="_blank" class="btn-primary" style="background:#6c4f32;"><i class="fas fa-share-alt"></i> Share location</a></div>
+        </div>
+        <div class="map-container">
+          <iframe src="https://maps.google.com/maps?q=House-79%2C%20Shop-02%2C%20Chairmanbari%20banani%2C%20Block%23D%2C%20Dhaka%201213%2C%20Bangladesh&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>INNOVATIVE DECOR</h4><p>House-79, Shop-02, Chairmanbari Banani, Block#D, Dhaka 1213</p><p>Phone: +8801975-584551</p><p>Email: innovativedecorbd@gmail.com</p></div>
+      <div class="footer-col"><h4>Useful Links</h4><a href="#home">Home</a><a href="#services">Services</a><a href="#products">Products</a><a href="#">Terms of service</a><a href="#">Privacy policy</a></div>
+      <div class="footer-col"><h4>Our Services</h4><a href="#">Interior Design</a><a href="#">Architectural Consultancy</a><a href="#">3D Visualization</a><a href="#">Decorative Materials</a></div>
+    </div>
+    <div class="copyright">© Copyright 2025 INNOVATIVE DECOR All Rights Reserved<br>Powered by: Probaho IT Solutions</div>
+  </div>
+</footer>
+
+<script>
+  // preloader
+  window.addEventListener('load', () => { setTimeout(() => { const preloader = document.getElementById('preloader'); if(preloader) preloader.classList.add('hidden'); }, 1000); });
+
+  // fade-up observer
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.15 });
+  fadeElements.forEach(el => observer.observe(el));
+
+  // MODAL LOGIC for all quote buttons
+  const modal = document.getElementById('quoteModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const quoteTriggers = document.querySelectorAll('.open-quote-btn');
+  function openModalFunc() { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closeModalFunc() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+  quoteTriggers.forEach(btn => btn.addEventListener('click', openModalFunc));
+  closeModalBtn.addEventListener('click', closeModalFunc);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+
+  // mobile hamburger menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); }); });
+  }
+
+  // Google reviews data
+  const reviewsData = [
+    { name: "Md Masudur Rahman", time: "3 years ago", text: "All kinds of interior decoration items are available here. If anyone need interior decoration product than you can visit their shop.", stars: 5 },
+    { name: "ArchSense Architects", time: "4 years ago", text: "Good products at best price. Very cooperative People.", stars: 5 },
+    { name: "Raihanul Islam (Raihan)", time: "7 years ago", text: "They have good collection of design equipment. Owner behavior also good.", stars: 5 },
+    { name: "Azizul Hakim Pranto", time: "3 years ago", text: "It’s a reliable and a perfect place for interior solution.", stars: 5 },
+    { name: "Shahidul Islam", time: "2 years ago", text: "Co operation is good...", stars: 5 },
+    { name: "Syed Rizwan Ali", time: "5 years ago", text: "It was exellent customer service..", stars: 5 },
+    { name: "SYED MURTOZA MUQTADIR PASHA", time: "7 years ago", text: "Best shop in banani", stars: 5 },
+    { name: "sarwat jamil", time: "a year ago", text: "Excellent service", stars: 5 }
+  ];
+  function renderStars(rating) { let html = ''; for (let i=1;i<=5;i++) { if (i<=rating) html+='<i class="fas fa-star"></i>'; else html+='<i class="far fa-star"></i>'; } return html; }
+  const container = document.getElementById('reviewsContainer');
+  if (container) {
+    reviewsData.forEach(r => {
+      const card = document.createElement('div'); card.className = 'review-card';
+      card.innerHTML = `<div style="display:flex; justify-content:space-between; flex-wrap:wrap;"><div class="review-name"><strong>${escapeHtml(r.name)}</strong></div><div>${renderStars(r.stars)}</div></div><div style="font-size:0.75rem; color:#9b8b7c; margin-top:4px;">${escapeHtml(r.time)}</div><div class="review-text" style="margin-top:0.8rem;">“${escapeHtml(r.text)}”</div>`;
+      container.appendChild(card);
+    });
+  }
+  function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+</script>
+</body>
+</html>
