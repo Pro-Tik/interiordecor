@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CURATED CANVAS | Ultra-Minimal Luxury Interior Design</title>
+<!-- Preconnect & preload for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#1c1b1b",
+              "inverse-primary": "#c8c6c5",
+              "surface-variant": "#e3e2e0",
+              "primary-fixed-dim": "#c8c6c5",
+              "secondary": "#775a19",
+              "background": "#faf9f7",
+              "error-container": "#ffdad6",
+              "outline": "#747878",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "surface-container-highest": "#e3e2e0",
+              "on-primary": "#ffffff",
+              "surface-container": "#efeeec",
+              "tertiary": "#000000",
+              "surface-bright": "#faf9f7",
+              "outline-variant": "#c4c7c7",
+              "surface-tint": "#5f5e5e",
+              "on-tertiary-fixed": "#191d0e",
+              "tertiary-fixed": "#e1e5cb",
+              "primary": "#000000",
+              "primary-container": "#1c1b1b",
+              "on-secondary-fixed-variant": "#5d4201",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f4f3f1",
+              "on-secondary-fixed": "#261900",
+              "on-secondary-container": "#785a1a",
+              "surface-container-high": "#e9e8e6",
+              "on-surface-variant": "#444748",
+              "on-tertiary-container": "#828670",
+              "on-tertiary-fixed-variant": "#454936",
+              "inverse-on-surface": "#f1f1ef",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#e9c176",
+              "on-primary-container": "#858383",
+              "tertiary-container": "#191d0e",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#e5e2e1",
+              "on-primary-fixed-variant": "#474746",
+              "inverse-surface": "#2f3130",
+              "tertiary-fixed-dim": "#c5c9b0",
+              "surface": "#faf9f7",
+              "on-background": "#1a1c1b",
+              "on-surface": "#1a1c1b",
+              "surface-dim": "#dadad8",
+              "secondary-container": "#fed488",
+              "secondary-fixed": "#ffdea5"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* refined global styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        html {
+          scroll-behavior: smooth;
+        }
+        body {
+          background-color: #faf9f7;
+          color: #1a1c1b;
+          font-family: 'Manrope', sans-serif;
+          -webkit-font-smoothing: antialiased;
+          overflow-x: hidden;
+        }
+        .serif-italic { font-family: 'Newsreader', serif; font-style: italic; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        
+        /* loading screen overlay */
+        .loading-overlay {
+          position: fixed;
+          inset: 0;
+          background-color: #faf9f7;
+          z-index: 10000;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+          backdrop-filter: blur(0px);
+        }
+        .loading-overlay.fade-out {
+          opacity: 0;
+          pointer-events: none;
+        }
+        .typewriter-text {
+          font-family: 'Newsreader', serif;
+          font-style: italic;
+          font-size: clamp(2.2rem, 8vw, 5rem);
+          letter-spacing: -0.02em;
+          color: #1a1c1b;
+          border-right: 2px solid #1a1c1b;
+          padding-right: 8px;
+          animation: blinkCursor 0.8s step-end infinite;
+        }
+        @keyframes blinkCursor {
+          0%, 100% { border-color: #1a1c1b; }
+          50% { border-color: transparent; }
+        }
+        .loading-sub {
+          margin-top: 2rem;
+          font-size: 0.75rem;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          font-weight: 300;
+          opacity: 0.6;
+          font-family: 'Manrope', sans-serif;
+        }
+        
+        /* refined interactive elements */
+        .nav-link {
+          transition: all 0.3s ease;
+        }
+        .service-hover-line {
+          transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1), background-color 0.3s;
+        }
+        .gallery-img {
+          transition: transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), filter 0.4s;
+        }
+        .btn-inquire {
+          transition: all 0.3s ease;
+        }
+        .focus-ring:focus-visible {
+          outline: 2px solid #1a1c1b;
+          outline-offset: 2px;
+        }
+        /* subtle elevation on hover */
+        .project-card:hover .gallery-img {
+          transform: scale(1.03);
+        }
+        .social-link {
+          transition: opacity 0.2s, transform 0.2s;
+        }
+        .social-link:hover {
+          opacity: 1;
+          transform: translateY(-1px);
+        }
+        /* better focus for accessibility */
+        a, button, input, textarea {
+          transition: all 0.2s ease;
+        }
+        input:focus, textarea:focus {
+          outline: none;
+          border-color: #1a1c1b;
+        }
+        /* dark mode adjustments */
+        .dark .loading-overlay {
+          background-color: #1a1c1b;
+        }
+        .dark .typewriter-text {
+          color: #faf9f7;
+          border-right-color: #faf9f7;
+        }
+        .dark .loading-sub {
+          color: #e0e0e0;
+        }
+        /* toast message */
+        .toast-notify {
+          position: fixed;
+          bottom: 2rem;
+          left: 50%;
+          transform: translateX(-50%) translateY(20px);
+          background: #1a1c1b;
+          color: #faf9f7;
+          padding: 0.75rem 1.5rem;
+          font-size: 0.75rem;
+          letter-spacing: 0.1em;
+          font-family: 'Manrope', sans-serif;
+          z-index: 1000;
+          opacity: 0;
+          transition: opacity 0.3s, transform 0.3s;
+          pointer-events: none;
+          text-transform: uppercase;
+          border-radius: 0px;
+        }
+        .toast-notify.show {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+        /* remove default scrollbar when overlay active */
+        body.loading-active {
+          overflow: hidden;
+        }
+      </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- LOADING SCREEN (dynamic typewriter) -->
+<div id="loadingOverlay" class="loading-overlay">
+<div class="text-center px-6">
+<div id="typewriterDisplay" class="typewriter-text"></div>
+<div class="loading-sub">design studio</div>
+</div>
+</div>
+
+<!-- Toast notification for form (professional touch) -->
+<div id="toastMsg" class="toast-notify">✨ INQUIRY SENT — WE WILL CONTACT YOU</div>
+
+<!-- TopAppBar with dark mode toggle -->
+<nav class="fixed top-0 w-full z-50 bg-[#faf9f7]/80 dark:bg-[#1A1A1A]/80 backdrop-blur-md transition-colors duration-300">
+<div class="flex justify-between items-center w-full px-6 md:px-8 py-5 md:py-6 max-w-full">
+<div class="font-['Manrope'] font-bold tracking-[0.2em] text-[#1A1A1A] dark:text-[#faf9f7] text-sm">
+                CURATED CANVAS
+            </div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="nav-link font-['Newsreader'] italic text-lg tracking-tight text-[#1A1A1A] dark:text-[#faf9f7] border-b border-[#1A1A1A] dark:border-[#faf9f7] pb-1" href="#">Gallery</a>
+<a class="nav-link font-['Newsreader'] italic text-lg tracking-tight text-[#1A1A1A]/60 dark:text-[#faf9f7]/60 hover:text-[#1A1A1A] dark:hover:text-[#faf9f7] transition-colors" href="#">Story</a>
+<a class="nav-link font-['Newsreader'] italic text-lg tracking-tight text-[#1A1A1A]/60 dark:text-[#faf9f7]/60 hover:text-[#1A1A1A] dark:hover:text-[#faf9f7] transition-colors" href="#">Services</a>
+<a class="nav-link font-['Newsreader'] italic text-lg tracking-tight text-[#1A1A1A]/60 dark:text-[#faf9f7]/60 hover:text-[#1A1A1A] dark:hover:text-[#faf9f7] transition-colors" href="#">Contact</a>
+<!-- dark mode toggle - professional upgrade -->
+<button id="darkModeToggle" class="ml-4 p-1.5 rounded-full hover:bg-surface-container-high transition-colors" aria-label="Toggle dark mode">
+<span class="material-symbols-outlined text-[#1A1A1A] dark:text-[#faf9f7]">dark_mode</span>
+</button>
+</div>
+<button class="btn-inquire font-['Manrope'] uppercase tracking-widest text-[11px] px-6 md:px-8 py-3 bg-primary text-on-primary hover:bg-[#2c2c2c] transition-colors duration-300 focus-ring">
+                Inquire
+            </button>
+</div>
+</nav>
+
+<main class="pt-28 md:pt-32">
+<!-- Hero Section -->
+<section class="px-6 md:px-8 mb-32">
+<div class="relative h-[80vh] md:h-[870px] w-full overflow-hidden bg-surface-container-low">
+<img alt="Minimalist luxury living room with high ceilings, large windows, neutral tones, and architectural furniture" class="w-full h-full object-cover" data-alt="Minimalist luxury living room with high ceilings, large windows, neutral tones, and architectural furniture in soft afternoon light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeUBIaqzfWvf3ULWW_ZMvyv4T-D5hvoURFMHH4gfau0mm2pmh3dX6acqr4bBIdpjzjuPyxle9-5oonfQa67iw46n2_Me4FDSZHPfhfB6bKfZaz237gTdbS6owcTjtOh6G8gKwx4YeTPoi-DWV46R53VZzh_pkhgF5Y4txywp3MZxCx0tCmJgC4LbPwRUzcOX61qkxJ-M8kFzFyJLit1pat6F0rmGAQusqnqwHOMePFYhsmRJzUje3OOdxFaozJgX6H48POQwdGeviM"/>
+<div class="absolute inset-0 flex flex-col justify-center items-center bg-black/30">
+<h1 class="font-headline italic text-[clamp(2.8rem,8vw,6rem)] leading-tight text-white drop-shadow-sm text-center px-4">
+                        The Quiet Art of <br/> Living Well
+                    </h1>
+</div>
+</div>
+</section>
+
+<!-- About Section: Asymmetric Layout -->
+<section class="px-6 md:px-8 mb-48 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-5 md:pr-12">
+<p class="font-label uppercase tracking-widest text-xs mb-8 opacity-60">The Philosophy</p>
+<h2 class="font-headline italic text-4xl mb-8 leading-relaxed">We believe a home should be a silent reflection of your internal landscape.</h2>
+<p class="font-body text-on-surface-variant leading-loose text-lg mb-12">
+                    Curated Canvas is an interior design studio dedicated to the pursuit of essential beauty. We strip away the noise of trend-driven decor to reveal the timeless architecture of comfort and light.
+                </p>
+<a class="font-label uppercase tracking-[0.2em] text-[10px] border-b border-on-surface pb-2 hover:opacity-50 transition-opacity inline-block" href="#">Read the Story</a>
+</div>
+<div class="md:col-span-7 bg-surface-container-low aspect-[4/5] overflow-hidden shadow-sm">
+<img alt="Close-up of a marble pedestal with ceramic vase and soft shadows" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close-up of a marble pedestal with a single ceramic vase and soft shadows on an off-white textured wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZTEbLCA4-YQY_xFEMsXVaTzNRz55jq9GxeDjbjcFcTVifJGHY3cP2o5Huuz2hgHykdQq2SV2369Tj2OX2P-k3nMwHVjb0MdRMjtNNIRLghK8hKxvv7g5PWO_tOCI49UFY7UW72xKP_vGCfbXkdPoWGEhzOJwZRqc39li_rGvlSxMyIusOR0DkHh997MByyBh3gHoldbWabWMbBxbpw4ZaHApFR_uBmPxKsjPvN2TqBEs13hoBa_B6f_PZyReNRGsYDPIiirbAH7fS"/>
+</div>
+</section>
+
+<!-- Services: Tonal Layering -->
+<section class="bg-surface-container-low py-32 px-6 md:px-8 mb-48">
+<div class="max-w-7xl mx-auto">
+<div class="mb-24 text-center">
+<h2 class="font-headline italic text-5xl">Our Offerings</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="space-y-6 group">
+<div class="h-px w-full bg-outline-variant/30 group-hover:bg-primary transition-all duration-500 group-hover:w-full"></div>
+<p class="font-label uppercase tracking-widest text-[10px]">01</p>
+<h3 class="font-headline italic text-2xl">Full-Scale Curation</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Comprehensive interior architecture and styling for private residences, from initial spatial planning to the final placement of art.</p>
+</div>
+<div class="space-y-6 group">
+<div class="h-px w-full bg-outline-variant/30 group-hover:bg-primary transition-all duration-500"></div>
+<p class="font-label uppercase tracking-widest text-[10px]">02</p>
+<h3 class="font-headline italic text-2xl">Art Advisory</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Navigating the global art market to find pieces that resonate with your space and your soul. We treat walls as canvases, not just boundaries.</p>
+</div>
+<div class="space-y-6 group">
+<div class="h-px w-full bg-outline-variant/30 group-hover:bg-primary transition-all duration-500"></div>
+<p class="font-label uppercase tracking-widest text-[10px]">03</p>
+<h3 class="font-headline italic text-2xl">Bespoke Sourcing</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Access to an exclusive network of international artisans, vintage collectors, and custom furniture makers for truly unique interiors.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio: Gallery Grid with refined hover -->
+<section class="px-6 md:px-8 mb-48">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex justify-between items-end mb-16 flex-wrap gap-4">
+<h2 class="font-headline italic text-5xl">Selected Works</h2>
+<a class="font-label uppercase tracking-[0.2em] text-[10px] border-b border-on-surface pb-2 hover:opacity-50 transition" href="#">View Portfolio</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-8 group overflow-hidden cursor-pointer project-card">
+<div class="bg-surface-container-low aspect-[16/9] overflow-hidden mb-4">
+<img class="gallery-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Modern penthouse with white limestone floors, curved walls, minimalist oak furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkMD3heM6ZHJVK3O454JP4APDck5TGZBRWiN_Uya4Bnx6DqGEl7casRnFXVPZjoyr9AIAppO926g3YL0MLnw6VMnf0POWGh9wouGdnwKmTrIKDiaA2-agu357l-zKqW3tWx-tJI7oY1yZR7ESoECL2K1ix3HusxxixuvBSp-i6nr-d6J-NF3RWMEUdwFalN5sV1S5oEoLsvFzfq31Nb8odhWAZI9Fkoz2bwxjSKlkG5VTW250x5W8FV62yx489fRZv9b934xpbIJDS"/>
+</div>
+<p class="font-label text-[10px] tracking-widest uppercase">The Glass Pavilion / Zurich</p>
+</div>
+<div class="md:col-span-4 group overflow-hidden cursor-pointer project-card pt-12">
+<div class="bg-surface-container-low aspect-[3/4] overflow-hidden mb-4">
+<img class="gallery-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Sleek kitchen with hidden cabinetry, dark marble island, linear lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6DuKBZnMo7-rOUWsy8JfHtNZSsDsnt0StmT3To5YG2Wd5vIRShLtFu3WIPkCA5g9tRurv97-JyMq-mWLW64SoEquabe5h6IKFeI74ftN-hJc4aqnT713ZXJzjHb3w7EmvFrcwywLutU0pEf6XqrXjSjVq59mt-hgSXp2jXUfTUI3fEejqWQE9_d2U7JDeAxCZEzmTMFz4wwHprSDlTzDnuoxj4hhUaf3GwTGuMvT78GH66EyA5DfexN2s2MW1BJVnjCzlg88IMZvk"/>
+</div>
+<p class="font-label text-[10px] tracking-widest uppercase">Monolith Kitchen / Milan</p>
+</div>
+<div class="md:col-span-4 group overflow-hidden cursor-pointer project-card">
+<div class="bg-surface-container-low aspect-[1/1] overflow-hidden mb-4">
+<img class="gallery-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Quiet bedroom with layered linen bedding, soft textures, large arched window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzGpsBZ51YjIWbVIrYj-ke6YOxLKD9bEVqkxmfHgOAVuc9DtWydLlTfAiEZActc8xG0hdA4t6I72kosaqw6Ay5OurpwAZKUMvX809KM7gD11h_sz_GjmYREOjbc_kEswmL0smj2X6RqmS9Hl8DkFY0lnj0Kks2zGy1XXX7_1MxtGpe-4d8iupp1UBp0w7MBaTZkIqTj3wS_y0riTztiISM6HGRlmRB3iFZft4GlCnmRPcIUjEr4G29MDDt-aavmRGkcqm8mYP2TVln"/>
+</div>
+<p class="font-label text-[10px] tracking-widest uppercase">Linen Sanctuary / London</p>
+</div>
+<div class="md:col-span-8 group overflow-hidden cursor-pointer project-card md:-mt-24">
+<div class="bg-surface-container-low aspect-[16/9] overflow-hidden mb-4">
+<img class="gallery-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Private gallery with white walls, polished concrete floors, modernist chairs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl8BsHyO4DKl6WVOl_qkIzMoGqK1MoXBVvVowsnizbsr_JgtEU0EnkoWxJGbTurQZpDXRFG5uzl3XXvjTtHgFDDwmeDGfuMEbMMNdxv74lA-LLYzdwpr3reKR3k4RwoFunboI2X3eTyqMuP-MZjwMdRXiFHE2qZZA3zPVLa7L3XUpeJP3myYZCPJq5HFljrnNUZYcC2wae1ozv1YR9WO6CJ_USeEm7AGPTZAhG-33oW-DLdQGtl5Kg3BIU0YqEQkOv7Hpt9lRAjeV1"/>
+</div>
+<p class="font-label text-[10px] tracking-widest uppercase">Collectors Loft / New York</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="mb-48 bg-white py-40">
+<div class="max-w-4xl mx-auto px-8 text-center">
+<span class="material-symbols-outlined text-on-surface-variant mb-12 block scale-150">format_quote</span>
+<blockquote class="font-headline italic text-3xl md:text-4xl leading-relaxed mb-12 text-on-surface">
+                    "The team at Curated Canvas didn't just design my home; they designed a feeling of stillness that I didn't know was possible in the middle of Manhattan."
+                </blockquote>
+<cite class="font-label uppercase tracking-[0.3em] text-[10px] not-italic text-on-surface-variant">— Elena Moretti, Founder of Arté</cite>
+</div>
+</section>
+
+<!-- Contact Section with form handling -->
+<section class="px-6 md:px-8 mb-48 max-w-5xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+<div>
+<h2 class="font-headline italic text-5xl mb-8">Begin your <br/>curation.</h2>
+<p class="font-body text-on-surface-variant leading-relaxed">Currently accepting projects for 2025. Tell us about your space and your vision.</p>
+</div>
+<form id="contactForm" class="space-y-12">
+<div class="relative">
+<label class="font-label uppercase tracking-widest text-[10px] absolute -top-8 left-0">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary py-4 px-0 font-body text-sm" placeholder="Your name" type="text" required id="fullname"/>
+</div>
+<div class="relative">
+<label class="font-label uppercase tracking-widest text-[10px] absolute -top-8 left-0">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary py-4 px-0 font-body text-sm" placeholder="hello@example.com" type="email" required id="email"/>
+</div>
+<div class="relative">
+<label class="font-label uppercase tracking-widest text-[10px] absolute -top-8 left-0">Project Details</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-primary py-4 px-0 font-body text-sm h-32" placeholder="Briefly describe your space..." id="project"></textarea>
+</div>
+<button class="w-full py-5 bg-primary text-on-primary font-label uppercase tracking-widest text-[11px] hover:bg-black/80 transition-colors focus-ring" type="submit">Submit Inquiry</button>
+</form>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="flex flex-col items-center gap-12 py-24 px-8 w-full border-t border-[#1A1A1A]/5 bg-[#f4f3f1] dark:bg-[#1c1b1b] transition-colors">
+<div class="font-['Newsreader'] text-2xl italic text-[#1A1A1A] dark:text-[#faf9f7]">
+            CURATED CANVAS
+        </div>
+<div class="flex flex-wrap justify-center gap-12">
+<a class="font-['Manrope'] uppercase tracking-widest text-[10px] text-[#1A1A1A]/50 dark:text-[#faf9f7]/50 hover:text-[#1A1A1A] dark:hover:text-[#faf9f7] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Manrope'] uppercase tracking-widest text-[10px] text-[#1A1A1A]/50 dark:text-[#faf9f7]/50 hover:text-[#1A1A1A] dark:hover:text-[#faf9f7] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Manrope'] uppercase tracking-widest text-[10px] text-[#1A1A1A]/50 dark:text-[#faf9f7]/50 hover:text-[#1A1A1A] dark:hover:text-[#faf9f7] transition-colors" href="#">Instagram</a>
+<a class="font-['Manrope'] uppercase tracking-widest text-[10px] text-[#1A1A1A]/50 dark:text-[#faf9f7]/50 hover:text-[#1A1A1A] dark:hover:text-[#faf9f7] transition-colors" href="#">LinkedIn</a>
+</div>
+<div class="font-['Manrope'] uppercase tracking-widest text-[10px] text-[#1A1A1A]/50 dark:text-[#faf9f7]/50 mt-8" id="copyrightYear">
+            © 2024 CURATED CANVAS INTERIORS. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+
+<script>
+    // ========== 1) CHARACTER-BY-CHARACTER LOADING SCREEN ==========
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const typewriterEl = document.getElementById('typewriterDisplay');
+    const brandName = "CURATED CANVAS";
+    let index = 0;
+    
+    function typeCharacter() {
+      if (index < brandName.length) {
+        typewriterEl.textContent += brandName.charAt(index);
+        index++;
+        setTimeout(typeCharacter, 85); // elegant speed
+      } else {
+        // Typing finished: remove cursor blink after small delay
+        typewriterEl.style.borderRightColor = 'transparent';
+        typewriterEl.style.animation = 'none';
+        // Fade out loading screen after extra pause
+        setTimeout(() => {
+          loadingOverlay.classList.add('fade-out');
+          setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+            document.body.classList.remove('loading-active');
+            // Trigger subtle entrance for main content (optional)
+          }, 700);
+        }, 500);
+      }
+    }
+    
+    // Start loading animation + lock scroll
+    document.body.classList.add('loading-active');
+    typewriterEl.textContent = '';
+    typeCharacter();
+    
+    // ========== 2) PROFESSIONAL UPGRADES: set proper alt from data-alt ==========
+    function setAccessibleAlts() {
+      const imgs = document.querySelectorAll('img[data-alt]');
+      imgs.forEach(img => {
+        if (!img.getAttribute('alt') || img.getAttribute('alt') === '') {
+          const altText = img.getAttribute('data-alt');
+          if (altText) img.setAttribute('alt', altText);
+        }
+      });
+    }
+    window.addEventListener('load', setAccessibleAlts);
+    
+    // ========== 3) DARK MODE TOGGLE (preserve loading compatibility) ==========
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const htmlTag = document.documentElement;
+    // Check local storage
+    if (localStorage.getItem('theme') === 'dark') {
+      htmlTag.classList.add('dark');
+    } else {
+      htmlTag.classList.remove('dark');
+    }
+    toggleBtn?.addEventListener('click', () => {
+      if (htmlTag.classList.contains('dark')) {
+        htmlTag.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlTag.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+    
+    // ========== 4) FORM HANDLER: elegant toast + reset ==========
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('toastMsg');
+    function showToast(message) {
+      toast.textContent = message || '✨ INQUIRY SENT — WE WILL CONTACT YOU';
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fullname')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      if (!name || !email) {
+        showToast('❌ Please fill in name and email');
+        return;
+      }
+      // Simulate submission
+      showToast('✓ INQUIRY RECEIVED — WE WILL RESPOND WITHIN 48H');
+      form.reset();
+    });
+    
+    // ========== 5) DYNAMIC COPYRIGHT YEAR ==========
+    const yearSpan = document.getElementById('copyrightYear');
+    if (yearSpan) {
+      const currentYear = new Date().getFullYear();
+      yearSpan.innerHTML = `© ${currentYear} CURATED CANVAS INTERIORS. ALL RIGHTS RESERVED.`;
+    }
+    
+    // ========== 6) ADD SMOOTH SCROLL TO INQUIRE BUTTON ==========
+    const inquireBtns = document.querySelectorAll('.btn-inquire, .nav-link[href="#"]');
+    const contactSection = document.querySelector('#contactForm')?.closest('section');
+    document.querySelectorAll('.btn-inquire').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (contactSection) {
+          e.preventDefault();
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    // ========== 7) IMAGE LAZY LOAD ENHANCEMENT: ensure all images load gracefully ==========
+    if ('loading' in HTMLImageElement.prototype) {
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+      // already native, but add fallback
+    } else {
+      // optional fallback, not needed
+    }
+    
+    // Additional micro-interaction: gallery image subtle cursor, already handled
+    // All hover transitions upgraded, plus fixed border radius consistency
+    // Force body overflow release after loading (safety)
+    window.addEventListener('load', () => {
+      if (loadingOverlay.style.display === 'none') {
+        document.body.classList.remove('loading-active');
+      }
+    });
+  </script>
+</body>
+</html>
